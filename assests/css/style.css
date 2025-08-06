@@ -1,0 +1,113 @@
+:root{
+    /* Definindo variáveis de cores para uso em todo o CSS */
+    --azul: rgb(36, 94, 230);
+    --branco: white;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section{
+    width: 70%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: var(--branco);
+    padding-bottom: 10px;
+}
+
+section h2{
+    background-color: var(--azul);
+    width: calc(100% + 1px);
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid black;
+    color: white;
+}
+
+.row{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 10px 10px 0;
+}
+
+.content-input{
+    position: relative;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    height: 55px;
+}
+
+.span2{
+    grid-column: span 2;
+}
+
+.span3{
+    grid-column: span 3;
+}
+
+input{
+    position: absolute; 
+    background-color: transparent;
+    padding: 15px 5px;
+    border: 1px solid rgba(128, 128, 128, 0.458);
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    z-index: 2;
+    font-size: .9em;
+}
+
+.content-input > label{
+    position: absolute;
+    display: flex; 
+    align-items: center;
+    height: 50px;
+    padding-left: 5px; 
+    transition: .5s; 
+}
+
+input:focus + label,
+input:valid + label{
+    transform: translateX(10px) translateY(-14px);
+    transition: .5s; 
+    background-color: var(--branco);
+    padding: 0 5px; 
+    width: auto;
+    height: auto;
+    z-index: 3;
+}
+
+input:focus,
+input:valid{
+    border: 1px solid var(--azul);
+}
+
+

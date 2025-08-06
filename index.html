@@ -64,7 +64,7 @@
 
             <div class="row">
                 <div class="content-input span3">
-                    <input type="text" id="complemento" name="complemento" required>
+                    <input type="text" id="complemento" name="complemento" placeholder="complemento" class="no-required">
                     <label for="complemento">Complemento</label>
                 </div>
             </div>
@@ -104,4 +104,11 @@
         </section>
     </main>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script>
+$('#telefone').mask('(00) 00000-0000');
+$("#cep").mask("00000-000");
+
+</script>
 </html>

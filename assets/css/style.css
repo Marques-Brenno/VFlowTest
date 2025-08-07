@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&display=swap');
+
+:root{
+    --azul: rgb(36, 94, 230);
+    --azul-Hover: rgb(33, 83, 199);
+    --branco: white;
+    --vermelho: rgb(255, 82, 82);
+
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Mozilla Headline", sans-serif;
+    position: relative;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+h1{
+   padding-top: 20px; 
+}
+
+section{
+    width: 70%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: var(--branco);
+    padding-bottom: 10px;
+}
+
+section h2{
+    background-color: var(--azul);
+    width: calc(100% + 1px);
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid black;
+    color: white;
+}
+
+.supplier-row{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 10px 10px 0;
+}
+
+.span3{
+    grid-column: span 3;
+}
+
+.content-input{
+    position: relative;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    height: 55px;
+}
+
+input{
+    position: absolute; 
+    background-color: transparent;
+    padding: 15px 5px;
+    border: 1px solid rgba(128, 128, 128, 0.458);
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    z-index: 2;
+    font-size: .9em;
+}
+
+input::placeholder{
+    color: transparent;
+    
+}
+
+
+.content-input > label{
+    position: absolute;
+    display: flex; 
+    align-items: center;
+    height: 50px;
+    padding-left: 5px; 
+    transition: .5s; 
+    font-size: 20px;
+    border: none;
+}
+
+input:focus + label,
+input:not(.no-required):valid + label,
+.no-required:not(:placeholder-shown) + label
+{
+    transform: translateX(10px) translateY(-14px);
+    transition: .5s; 
+    background-color: var(--branco);
+    padding: 0 5px; 
+    width: auto;
+    height: auto;
+    z-index: 3;
+}
+
+input:focus,
+input:not(.no-required):valid,
+.no-required:not(:placeholder-shown)
+{
+    border: 1px solid var(--azul);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#products{
+    width: 96%;
+}
+.product-row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.product-trash, .anexo-trash{
+    font-size: 30px;
+}
+
+.bx-trash{
+    cursor: pointer;
+    transition: .5s;
+}
+
+.bx-trash:hover{
+    color: red;
+    scale: 1.3;
+}
+
+fieldset{
+    width: 95%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+legend{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.product-text{
+    width: 100%;
+    margin: 10px 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--azul);
+}
+
+.product-text legend{
+    font-size: 18px;
+}
+
+.product-text p{
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.product-text p::first-letter {
+    text-transform: uppercase;
+}
+
+.container-box{
+    width: 15%;
+    background-color: var(--azul);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+}
+
+.container-box img{
+    width: 100%;
+}
+
+.product-info{
+    width: 85%;
+    margin-right: 20px;
+}
+
+.product-info-row{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+select {
+    height: 47px;
+    margin-top: 10px;
+    padding-left: 20px;
+    font-size: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.458);
+    border-radius: 5px;
+    background-color: var(--branco);
+    color: #333;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select:focus,
+select:valid {
+  outline: none;
+  border-color: #0056b3;
+}
+
+.add-product{
+    width: 96%;
+    padding: 10px;
+    font-size: 20px;
+    font-family: "Mozilla Headline", sans-serif;
+    background-color: var(--azul);
+    color: var(--branco);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.add-product:hover{
+    background-color: var(--azul-Hover);
+}
+
+#anexos{
+    width: 95%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.anexo-row{
+    display: flex;
+    gap: 20px;
+}
+
+.anexo-eye{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 30px;
+}
+
+.bx-eye-alt{
+    font-size: 30px;
+    transition: .5s;
+}
+
+.bx-eye-alt:hover{
+    color: var(--azul-Hover);
+    scale: 1.3;
+
+}
+
+
+
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.disabled {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.add-new-product {
+    background-color: var(--branco);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.425);
+    width: 60%;
+    position: absolute;
+    z-index: 100;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.new-product-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+    margin-bottom: 10px;
+}
+
+.new-product-header > h1 {
+    color: #2c3e50;
+}
+
+#close {
+    width: 50px;
+    background-color: transparent;
+    border: none;
+    height: 50px;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: #777;
+}
+
+.body-new-peoduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-info-row-modal{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+
+
+#container-alert {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 26%;
+    bottom: 10px;
+    left: -25%;
+    z-index: 20;
+}
+
+.alert {
+    background-color: rgb(35, 37, 49);;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: last baseline;
+    border: 1px solid var(--branco);
+    animation: surge 0.5s;
+}
+
+.alert > div:not(.alert-time) {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 5px;
+    padding: 0 10px;
+}
+
+.alert-icon {
+    background-color: rgba(255, 255, 255, 0.05);
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 10px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.alert-circle {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid red;
+    border-radius: 50%;
+}
+
+.alert-circle > i {
+    color: red;
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert-text {
+    font-size: 16px;
+    color: var(--branco);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4em;
+    max-height: 2.8em; /* 2 linhas x 1.4em */
+    margin-top: 10px;
+}
+
+.alert-time {
+    background-color: var(--branco);
+    height: 5px;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    animation: time 5s;
+}
+
+
+@keyframes surge {
+  from{
+    margin-left: -20px;
+  }
+  to{
+    margin-left: 100%;
+  }
+}
+
+@keyframes diminui {
+  from{
+    margin-left: 100%;
+  }
+  to{
+    margin-left: -20px;
+  }
+}
+
+@keyframes time {
+  from {
+    width: 100%; 
+  }
+  to {
+    width: 0%; 
+  }
+}
+
+
+
+@media (max-width: 768px) {
+    
+    main{
+        justify-content: start;
+        align-items: start;
+    }
+
+    h1{
+        font-size: 24px;
+    }
+    
+    section{
+        width: 100%;
+    }
+
+    .supplier-row{
+        grid-template-columns: 1fr;
+    }
+
+}

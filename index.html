@@ -9,13 +9,17 @@
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src='assets/js/alert.js' defer></script>
+    <script src='assets/js/supplier.js' defer></script>
+    <script src='assets/js/cep.js' defer></script>
     <script src='assets/js/product.js' defer></script>
+    <script src='assets/js/anexo.js' defer></script>
 </head>
 <body>
 
     <div id="container-alert"></div>
 
-    <main>
+    <form>
         <h1>Cadastro Fornecedor e Produto</h1>
 
         <section>
@@ -39,7 +43,7 @@
                     <label for="nome-fantasia">Nome Fantasia</label>
                 </div>
                 <div class="content-input">
-                    <input type="text" id="incricao-estadual" name="incricao-estadual" required>
+                    <input type="text" id="incricao-estadual" name="incricao-estadual" class="no-required" placeholder="incricao-estadual">
                     <label for="incricao-estadual">Incrição Estadual</label>
                 </div>
             </div>
@@ -50,8 +54,8 @@
                     <label for="cep">CEP</label>
                 </div>
                 <div class="content-input">
-                    <input type="text" id="incricao-municipal" name="incricao-municipal" required>
-                    <label for="incricao-municipal">Incrição Municipal</label>
+                    <input type="text" id="inscricao-municipal" name="inscricao-municipal" class="no-required" placeholder="inscricao-municipal">
+                    <label for="inscricao-municipal">Inscrição Municipal</label>
                 </div>
             </div>
 
@@ -110,42 +114,15 @@
         <section>
             <h2>Produtos</h2>
             <div id="products">
-                <div class="product-row">
-                    <div class="product-trash"><i class='bxr bx-trash'></i></div>
-                    <fieldset>
-                        <legend>Produto - 1</legend>
-                        <div class="container-box">
-                            <img src="assets/img/box-icon.png" alt="">
-                        </div>
-                        <div class="product-info">
-                            <fieldset class="product-text">
-                                <legend>Produto</legend>
-                                <p>nome de um produto qualquer</p>
-                            </fieldset>
-                            <div class="product-info-row">
-                                <fieldset class="product-text">
-                                    <legend>UND. Medida</legend>
-                                    <p>Metros</p>
-                                </fieldset>
-                                <fieldset class="product-text">
-                                    <legend>QTD. em Estoque</legend>
-                                    <p>34</p>
-                                </fieldset>
-                                <fieldset class="product-text">
-                                    <legend>Valor Unitário</legend>
-                                    <p>34,99</p>
-                                </fieldset>
-                                <fieldset class="product-text">
-                                    <legend>Valor Total</legend>
-                                    <p>1189,66</p>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
+                <!-- <div class="no-products">
+                    <div class="container-box">
+                        <img src="assets/img/caixa-vazia.png" alt="">
+                    </div>
+                    <h3>Nenhum Produto Cadastrado</h3>
+                </div> -->
             </div>
 
-            <button id="add-product" class="add-product">Adicionar Produto</button>
+            <button type="button" id="add-product" class="add-product">Adicionar Produto</button>
         </section>
 
         <section>
@@ -155,69 +132,55 @@
                 <div class="anexo-row">
                     <div class="anexo-trash"><i class='bxr bx-trash'></i></div>
                     <div class="anexo-eye"><i class='bxr  bx-eye-alt'></i></div>
-                    <p></p>
+                    <p>Anexo 1</p>
+                </div>
+                <div class="anexo-row">
+                    <div class="anexo-trash"><i class='bxr bx-trash'></i></div>
+                    <div class="anexo-eye"><i class='bxr  bx-eye-alt'></i></div>
+                    <p>Anexo 1</p>
                 </div>
             </fieldset>
+            <button type="button" id="add-anexo">Adicionar Anexo</button>
         </section>
 
         <div class="disabled" id="modal">
-            <div class="add-new-product">
-                <div class="new-product-header">
+            <!-- <div class="add-anexo">
+                <div class="anexo-header">
                     <h1>Adicionar novo Produto</h1>
 
                     <button id="close">&times;</button>
                 </div>
 
-                <div class="body-new-peoduct">
+                <div class="body-anexo">
                     <fieldset>
-                        <div class="container-box">
-                            <img src="assets/img/box-icon.png" alt="">
-                        </div>
-                        <div class="product-info">
-                            <div class="content-input">
-                                <input type="text" id="descricao-produto" name="descricao-produto" required>
-                                <label for="descricao-produto">Produto</label>
-                            </div>
-                            <div class="product-info-row-modal">
-                                <select name="unidade-medida" id="unidade-medida" required>
-                                    <option value="">Selecione</option>
-                                    <option value="un">Unidade</option>
-                                    <option value="kg">Quilograma</option>
-                                    <option value="g">Grama</option>
-                                    <option value="L">Litro</option>
-                                    <option value="ml">Mililitro</option>
-                                    <option value="m">Metro</option>
-                                    <option value="cm">Centímetro</option>
-                                    <option value="cx">Caixa</option>
-                                    <option value="pct">Pacote</option>
-                                    <option value="par">Par</option>
-                                    <option value="dz">Dúzia</option>
-                                </select>
-
-                                <div class="content-input">
-                                    <input type="number" id="qtd-estoque" name="qtd-estoque" required>
-                                    <label for="qtd-estoque">QTD. em Estoque</label>
+                        <div class="container">
+                            <div class="folder">
+                                <div class="front-side">
+                                    <div class="tip"></div>
+                                    <div class="cover"></div>
                                 </div>
-
-                                <div class="content-input">
-                                    <input type="number" id="valor-unitario" name="valor-unitario" required>
-                                    <label for="valor-unitario">Valor Unitário</label>
-                                </div>
-
+                                <div class="back-side cover"></div>
                             </div>
+                            <label class="custom-file-upload">
+                                <input class="title" type="file" />
+                                Choose a file
+                            </label>
                         </div>
+
+                        <h2 class="anexo-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo voluptatum cumque animi nobis nam ut iure molestiae ipsum magnam. Sed adipisci, deserunt illum tempora magni neque voluptas possimus necessitatibus suscipit.</h2>
                     </fieldset>
                     <button id="add-product-modal" class="add-product">Adicionar Produto</button>
                     
                 </div>
-            </div>
+            </div> -->
         </div>
-    </main>
+        <button type="button" id="save-supplier">Salvar Fornecedor</button>
+    </form>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 <script>
-$('#telefone').mask('(00) 00000-0000');
+$('#telefone').mask('+55 (00) 00000-0000');
 $("#cep").mask("00000-000");
 
 </script>

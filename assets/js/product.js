@@ -1,5 +1,3 @@
-const { createElement } = require("react");
-
 const modal = document.querySelector('#modal');
 const closeModal = document.querySelector("#close");
 const addProduct = document.querySelector("#add-product");
@@ -9,6 +7,7 @@ const containerAlert = document.querySelector("#container-alert");
 let produtos = []
 
 window.onload = function () {
+    sessionStorage.clear();
   const dados = sessionStorage.getItem("produtos");
   produtos = dados ? JSON.parse(dados) : [];
   atualizarProducts();
@@ -142,19 +141,19 @@ function AdicionarProduto(){
 }
 
 function fieldset(titulo,valor){
-    const fieldset = document.createElement("fieldset");
-    fieldset.className = "product-text";
+    let productText = document.createElement("fieldset");
+    productText.className = "product-text";
 
-    const legend = document.createElement("legend");
-    legend.textContent = titulo;
+    let legendText = document.createElement("legend");
+    legendText.textContent = titulo;
 
-    const p = document.createElement("p");
-    p.textContent = valor;
+    let pText = document.createElement("p");
+    pText.textContent = valor;
 
-    fieldset.appendChild(legend);
-    fieldset.appendChild(p);
+    productText.appendChild(legendText);
+    productText.appendChild(pText);
 
-    return fieldset;
+    return productText;
 }
 
 

@@ -76,7 +76,7 @@ function ModalProduct(){
     productInfoRowModal.appendChild(select);
 
     const opcoes = [
-        { value: "", text: "Selecione" },
+        { value: "", text: "UNID. Medida" },
         { value: "un", text: "Unidade" },
         { value: "kg", text: "Quilograma" },
         { value: "g", text: "Grama" },

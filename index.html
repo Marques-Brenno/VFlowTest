@@ -5,27 +5,34 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Cadastro Fornecedor/Produto</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- Estilos e ícones -->
     <link rel='stylesheet' type='text/css' media='screen' href='assets/css/style.css'>
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Scripts principais da aplicação -->
     <script src='assets/js/alert.js' defer></script>
     <script src='assets/js/supplier.js' defer></script>
     <script src='assets/js/cep.js' defer></script>
     <script src='assets/js/product.js' defer></script>
     <script src='assets/js/anexo.js' defer></script>
+    <script src='assets/js/save.js' defer></script>
 </head>
 <body>
 
+    <!-- Área para exibir alertas dinâmicos -->
     <div id="container-alert"></div>
 
     <form>
         <h1>Cadastro Fornecedor e Produto</h1>
 
+        <!-- Seção: Fornecedor -->
         <section>
-            <h2>
-                Dados do Fornecedor
-            </h2>
+            <h2>Dados do Fornecedor</h2>
+
+            <!-- DADOS BÁSICOS - Informações obrigatórias da empresa -->
             <div class="supplier-row">
                 <div class="content-input">
                     <input type="text" id="razao-social" name="razao-social" required>
@@ -37,17 +44,19 @@
                 </div>
             </div>
 
+            <!-- Continuação dos dados do fornecedor -->
             <div class="supplier-row">
                 <div class="content-input">
                     <input type="text" id="nome-fantasia" name="nome-fantasia" required>
                     <label for="nome-fantasia">Nome Fantasia</label>
                 </div>
                 <div class="content-input">
-                    <input type="text" id="incricao-estadual" name="incricao-estadual" class="no-required" placeholder="incricao-estadual">
+                    <input type="text" id="inscricao-estadual" name="inscricao-estadual" class="no-required" placeholder="inscricao-estadual">
                     <label for="incricao-estadual">Incrição Estadual</label>
                 </div>
             </div>
 
+            <!-- Endereço e CEP -->
             <div class="supplier-row">
                 <div class="content-input">
                     <input type="text" id="cep" name="cep" required>
@@ -59,6 +68,7 @@
                 </div>
             </div>
 
+            <!-- Endereço -->
             <div class="supplier-row">
                 <div class="content-input">
                     <input type="text" id="endereco" name="endereco" required>
@@ -70,6 +80,7 @@
                 </div>
             </div>
 
+            <!-- DADOS COMPLEMENTARES - Campos não obrigatórios -->
             <div class="supplier-row">
                 <div class="content-input span3">
                     <input type="text" id="complemento" name="complemento" placeholder="complemento" class="no-required">
@@ -77,6 +88,7 @@
                 </div>
             </div>
 
+            <!-- Bairro e Município -->
             <div class="supplier-row">
                 <div class="content-input">
                     <input type="text" id="bairro" name="bairro" required>
@@ -88,6 +100,7 @@
                 </div>
             </div>
 
+            <!-- Estado e Contato -->
             <div class="supplier-row">
                 <div class="content-input">
                     <input type="text" id="estado" name="estado" required>
@@ -99,6 +112,7 @@
                 </div>
             </div>
 
+            <!-- Telefone e E-mail -->
             <div class="supplier-row">
                 <div class="content-input">
                     <input type="text" id="telefone" name="telefone" required>
@@ -111,78 +125,40 @@
             </div>
         </section>
 
+        <!-- SEÇÃO PRODUTOS - Lista dinâmica de itens do fornecedor -->
         <section>
             <h2>Produtos</h2>
-            <div id="products">
-                <!-- <div class="no-products">
-                    <div class="container-box">
-                        <img src="assets/img/caixa-vazia.png" alt="">
-                    </div>
-                    <h3>Nenhum Produto Cadastrado</h3>
-                </div> -->
-            </div>
-
+            <div id="products"></div>
+            <!-- Botão para adicionar produtos dinamicamente -->
             <button type="button" id="add-product" class="add-product">Adicionar Produto</button>
         </section>
 
+        <!-- SEÇÃO ANEXOS - Documentos e arquivos relacionados -->
         <section>
             <h2>Anexos</h2>
             <fieldset id="anexos">
-                <legend>Itens</legend>
-                <div class="anexo-row">
-                    <div class="anexo-trash"><i class='bxr bx-trash'></i></div>
-                    <div class="anexo-eye"><i class='bxr  bx-eye-alt'></i></div>
-                    <p>Anexo 1</p>
-                </div>
-                <div class="anexo-row">
-                    <div class="anexo-trash"><i class='bxr bx-trash'></i></div>
-                    <div class="anexo-eye"><i class='bxr  bx-eye-alt'></i></div>
-                    <p>Anexo 1</p>
-                </div>
             </fieldset>
+            <!-- Botão para adicionar anexos dinamicamente -->
             <button type="button" id="add-anexo">Adicionar Anexo</button>
         </section>
 
-        <div class="disabled" id="modal">
-            <!-- <div class="add-anexo">
-                <div class="anexo-header">
-                    <h1>Adicionar novo Produto</h1>
+        <!-- Modal de carregamento oculto -->
+        <div class="disabled" id="modal"></div>
 
-                    <button id="close">&times;</button>
-                </div>
-
-                <div class="body-anexo">
-                    <fieldset>
-                        <div class="container">
-                            <div class="folder">
-                                <div class="front-side">
-                                    <div class="tip"></div>
-                                    <div class="cover"></div>
-                                </div>
-                                <div class="back-side cover"></div>
-                            </div>
-                            <label class="custom-file-upload">
-                                <input class="title" type="file" />
-                                Choose a file
-                            </label>
-                        </div>
-
-                        <h2 class="anexo-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo voluptatum cumque animi nobis nam ut iure molestiae ipsum magnam. Sed adipisci, deserunt illum tempora magni neque voluptas possimus necessitatibus suscipit.</h2>
-                    </fieldset>
-                    <button id="add-product-modal" class="add-product">Adicionar Produto</button>
-                    
-                </div>
-            </div> -->
-        </div>
+        <!-- Botão final de salvar fornecedor -->
         <button type="button" id="save-supplier">Salvar Fornecedor</button>
     </form>
 </body>
+
+<!-- BIBLIOTECAS EXTERNAS - jQuery e plugins necessários -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-<script>
-$('#telefone').mask('+55 (00) 00000-0000');
-$("#cep").mask("00000-000");
-$("#cnpj").mask("00.000.000/0000-00");
 
+<!-- Máscaras para formatação de campos -->
+<script>
+    // Máscaras para formatação de campos de entrada
+    $('#telefone').mask('+55 (00) 00000-0000');
+    $("#cep").mask("00000-000");
+    $("#cnpj").mask("00.000.000/0000-00");
 </script>
 </html>

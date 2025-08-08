@@ -3,6 +3,8 @@
 Este é um projeto de formulário interativo para cadastro de fornecedores, produtos e anexos.  
 Foi desenvolvido como parte de um **desafio técnico da VFlows**, utilizando apenas tecnologias de front-end puras (**HTML5**, **CSS3**, **JavaScript ES6**, **Bootstrap** e **jQuery**).
 
+📌 Repositório oficial do desafio: [VFLOWS/Teste-Estagio](https://github.com/VFLOWS/Teste-Estagio)
+
 O código foi escrito do zero com foco em:
 - Manipulação dinâmica do DOM
 - Validação de campos obrigatórios

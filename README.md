@@ -1,7 +1,7 @@
 # 📦 Formulário de Cadastro de Fornecedores e Produtos
 
 Este é um projeto de formulário interativo para cadastro de fornecedores, produtos e anexos.  
-Foi desenvolvido como parte de um **desafio técnico da VFlows**, utilizando apenas tecnologias de front-end puras (**HTML5**, **CSS3**, **JavaScript ES6**, **Bootstrap** e **jQuery**).
+Foi desenvolvido como parte de um **desafio técnico da VFlows**, utilizando apenas tecnologias de front-end puras (**HTML5**, **CSS3**, **JavaScript ES6** e **jQuery**).
 
 📌 Repositório oficial do desafio: [VFLOWS/Teste-Estagio](https://github.com/VFLOWS/Teste-Estagio)
 
@@ -18,7 +18,6 @@ O código foi escrito do zero com foco em:
 - **HTML5** — Estrutura do formulário e organização semântica
 - **CSS3** — Estilização customizada com variáveis CSS e responsividade
 - **JavaScript (ES6)** — Lógica de validação, manipulação de DOM e armazenamento
-- **Bootstrap** — Elementos e responsividade base
 - **jQuery 3.5.1** — Manipulação simplificada de elementos e máscaras de campos
 - **API ViaCEP** — Consulta de endereço automático pelo CEP
 - **SessionStorage** — Armazenamento de produtos e anexos temporariamente

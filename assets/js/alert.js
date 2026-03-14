@@ -45,12 +45,12 @@ function errorAlert(textAlert) {
     divAlert.appendChild(alertTime); 
 
     // Define um tempo para iniciar a animação de diminuição após 4.5 segundos
-    setTimeout(function () {
+    setTimeout(() => {
         divAlert.style.animation = "forwards .5s diminui"; // Inicia a animação de diminuição
     }, 4500);
 
     // Remove o alerta do DOM após 5 segundos
-    setTimeout(function () {
+    setTimeout(() => {
         divAlert.remove(); // Remove o alerta
     }, 5000);
 }

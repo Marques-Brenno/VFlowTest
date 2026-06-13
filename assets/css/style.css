@@ -5,6 +5,8 @@
   --azul-Hover: rgb(33, 83, 199);
   --branco: white;
   --vermelho: rgb(255, 82, 82);
+  --verde: rgb(51, 171, 51);
+  --verde-Hover: rgba(51, 171, 51, 0.847);
 }
 
 * {
